@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>狐尼克起始页</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        @font-face {
+            font-family: Miao;
+            src: url(Miao.ttf);
+        }
+
+        @font-face {
+            font-family: GT;
+            src: url(GT.ttf);
+        }
+
+        @font-face {
+            font-family: OS;
+            src: url(OS.ttf);
+        }
+
+        :root {
+            --max-width: 500px;
+            --max-hight: 100px;
+            --max-top: 120px;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .base {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+        }
+
+        .bg {
+            width: 100%;
+            height: 100%;
+            background: url('bg.jpg') center center no-repeat;
+            background-size: cover;
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .body {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-image: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, .5) 100%), radial-gradient(rgba(0, 0, 0, 0) 33%, rgba(0, 0, 0, .3) 166%);
+        }
+
+        .tip {
+            width: 250px;
+            height: 45px;
+            background-color: rgba(25, 25, 25, .5);
+            box-shadow: rgb(0 0 0 / 20%) 0 0 10px;
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            position: fixed;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: tip 7s;
+        }
+
+        .tip span {
+            color: #ececec;
+            font-family: 'Miao';
+        }
+
+        @keyframes tip {
+            0% {
+                top: -50px;
+            }
+
+            20% {
+                top: 60px
+            }
+
+            50% {
+                top: 60px;
+            }
+
+            80% {
+                top: -50px;
+            }
+        }
+
+        .main {
+            width: var(--max-width);
+            height: 100%;
+            /* background-color: #ccc; */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+
+        }
+
+        @media (max-width: 900px) {
+            :root {
+                --max-width: 500px;
+                --max-hight: 100px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            :root {
+                --max-width: 400px;
+                --max-hight: 100px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            :root {
+                --max-width: 380px;
+                --max-hight: 100px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            :root {
+                --max-width: 320px;
+                --max-hight: 100px;
+                --max-top: 100px;
+            }
+        }
+
+        @media (max-width: 300px) {
+            :root {
+                --max-width: 250px;
+                --max-hight: 80px;
+                --max-top: 80px;
+            }
+        }
+
+        @media (min-height: 800px) {
+            :root {
+                --max-top: 220px;
+            }
+        }
+
+        @media (min-height: 1300px) {
+            :root {
+                --max-top: 350px;
+            }
+        }
+
+
+        #box {
+            width: 100%;
+            height: 100px;
+            background-color: aqua;
+        }
+
+        .time {
+            position: fixed;
+            top: var(--max-top);
+            width: 230px;
+            height: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: time 1s linear both;
+            user-select: none;
+        }
+
+        .timeText {
+            font-size: 40px;
+            color: #fff;
+            font-weight: 500;
+            transition: .25s;
+            text-shadow: 0 0 20px rgb(0 0 0 / 35%);
+        }
+
+        .time:hover {
+            transform: translateX(-50%) scale(1.1);
+        }
+
+
+        @keyframes time {
+
+            /* 时间出场动画 */
+            0% {
+                transform: scale(0);
+                filter: blur(12px);
+                opacity: 0
+            }
+
+            50% {
+                filter: blur(6px);
+                opacity: 0.5
+            }
+
+            100% {
+                filter: blur(0px);
+                opacity: 1
+            }
+        }
+
+        .search_bar {
+            position: fixed;
+            top: calc(var(--max-top) + 80px);
+            width: 230px;
+            height: 43px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, .25);
+            backdrop-filter: blur(10px);
+            box-shadow: rgb(0 0 0 / 20%) 0 0 10px;
+            border-radius: 30px;
+            transition: width .25s, color .25s, box-shadow .25s;
+        }
+
+        .search_bar:hover {
+            width: var(--max-width);
+            box-shadow: rgb(0 0 0 / 30%) 0 0 10px;
+        }
+
+        .search_bar input {
+            outline: 0;
+            border: none;
+            width: 100%;
+            height: 100%;
+            color: inherit;
+            background-color: transparent;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .text {
+            width: calc(var(--max-width) - 50px);
+            height: var(--max-hight);
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            border-radius: 25px;
+            transform: translateX(-50%);
+            text-shadow: 0 0 20px rgb(0, 0, 0, 80%);
+            color: #fff;
+            font-size: small;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            user-select: none;
+            transition: all ease;
+            transition-duration: 1s;
+            transform-origin: 50% 0%;
+            perspective: 5px;
+        }
+
+        .text:hover {
+            background-color: rgb(255 255 255 / 20%);
+            backdrop-filter: blur(10px);
+            transform: rotateX(-1deg) translateX(-50%);
+        }
+
+
+        .text li {
+            list-style: none;
+        }
+
+        .text-p {
+            text-align: center;
+            flex-shrink: 1;
+            font-size: 5%;
+            pointer-events: none;
+            min-width: 30%;
+            font-family: OS;
+        }
+
+        .text-name {
+            margin-top: 3%;
+            margin-bottom: 1%;
+            text-align: right;
+            margin-right: 10%;
+            display: none;
+            flex-shrink: 100;
+            font-size: 5%;
+            pointer-events: none;
+            min-width: 30%;
+            font-family: OS;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="base" id="base">
+        <div class="bg"></div>
+        <div class="body">
+            <div class="tip"><span>您的起始页目前是最新版</span></div>
+            <div class="main">
+                <div class="time">
+                    <div class="timeText"><span>00</span>:<span>00</span></div>
+                </div>
+                <div class="search_bar"><input placeholder="Search" onkeypress="getKey()"></div>
+                <div class=" text">
+                    <li class="text-p">「 最是人间留不住，朱颜辞镜花辞树。 」</li>
+                    <li class="text-name">—— 王国维</li>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript" src="http://yijuzhan.com/api/word.php?m=js"></script>
+<script src="js/index.js"></script>
+<script>
+    var search = document.querySelector('.search_bar');
+    var input = document.querySelector("input");
+    var click = 0; // 0未点击 1点击
+
+    var root = document.querySelector(':root');
+    var maxWidth = getComputedStyle(root).getPropertyValue("--max-width");
+    // console.log(maxWidth);
+
+    var fixedHeight = document.body.clientHeight;
+    console.log(fixedHeight);
+
+    var base = document.querySelector('#base');
+
+    base.style.height = fixedHeight + 'px';
+
+    // window.onresize = function () {
+    //     var vw = window.innerWidth;
+    //     // console.log('目前宽度' + vw);
+    //     // console.log('最大宽度' + maxWidth);
+    //     base.style.height = hrt;
+    // }
+
+
+    var bg = document.querySelector('.bg');
+    // console.log(bg);
+
+    input.onclick = function () { //搜索被点击时
+        input.setAttribute('placeholder', '');  // 清空提示词
+        search.style.width = maxWidth;   // 搜索框被点击放大效果
+        search.style.backgroundColor = 'rgba(255, 255, 255, .9)';
+        bg.style = 'transform:scale(1.1);filter:blur(10px)';    // 背景放大模糊
+        text.style.pointerEvents = 'none';  // 美文不可点击
+        click = 1;
+    }
+    input.onblur = function () {  //搜索失去焦点时
+        input.setAttribute('placeholder', 'Search');    // 还原提示词
+        search.style.width = '230px';
+        input.value = '';   // 失去焦点清空搜索内容
+        search.style.backgroundColor = 'rgba(255, 255, 255, .25)';
+        bg.style = 'transform:scale(1);filter:blur(0px)';
+        text.style.pointerEvents = 'all';
+        click = 0;
+
+    }
+    search.onmouseover = function () {  //鼠标经过搜索框时
+        search.style.width = maxWidth;   // 鼠标经过放大效果
+        search.style.backgroundColor = 'rgba(255, 255, 255, .6)';
+    }
+    search.onmouseout = function () {  //鼠标离开搜索框时
+        if (click == 0) {
+            search.style.width = '230px';   // 搜索未点击
+            search.style.backgroundColor = 'rgba(255, 255, 255, .25)';
+        } else {
+            search.style.width = maxWidth;   // 搜索被点击
+            search.style.backgroundColor = 'rgba(255, 255, 255, .9)';
+        }
+    }
+
+    function getKey() {
+        // input 回车跳转
+        if (event.keyCode == 13) {
+            url = 'https://wuzhuiso.com/s?q=' + input.value;
+            window.open(url, '_blank').location;
+            input.value = '';
+        }
+    }
+
+    var hour = document.querySelector('.timeText').getElementsByTagName('span')[0];
+    var minutes = document.querySelector('.timeText').getElementsByTagName('span')[1];
+
+    setInterval("showTime()", 1000);
+
+    showTime = function () {
+        var date = new Date();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+
+        if (h < 10) {
+            h = "0" + h;
+        }
+
+        if (m < 10) {
+            m = "0" + m;
+        }
+
+        if (s < 10) {
+            s = "0" + s;
+        }
+
+        hour.innerText = h;
+        minutes.innerText = m;
+    }
+    // 美文部分
+    var str;
+    var getStr = str;
+    console.log(getStr);
+
+    var tip = document.querySelector('.tip').getElementsByTagName('span')[0];
+
+    if (Boolean(str) == false) {
+        tip.innerHTML = '网络连接失败或api异常';
+    }
+
+
+
+    var text = document.querySelector('.text');
+    var textName = document.querySelector('.text-name');
+    var textP = document.querySelector('.text-p');
+    if (getStr[0].length <= 20 && getStr[1].length <= 25) {
+        textP.innerHTML = '「 ' + getStr[0] + ' 」';
+        textName.innerHTML = '——' + getStr[1];
+    }
+
+    text.ontouchstart = function () {
+        textName.style.display = 'block';
+    }
+
+    text.onmousemove = function () {
+        textName.style.display = 'block';
+    }
+
+    text.ontouchend = function () {
+        textName.style.display = 'none';
+    }
+
+    text.onmouseout = function () {
+        textName.style.display = 'none';
+    }
+
+</script>
+
+</html>
